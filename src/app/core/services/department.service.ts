@@ -4,7 +4,7 @@ import {environment} from '../../../environments/environment';
 import {Constant} from '../constant/Constant';
 import {Observable} from 'rxjs';
 import {DepartmentResponse} from '../ interfaces/department/department-response.interface';
-import {DepartmentRequest} from '../ interfaces/department/department-request.interface';
+import {Department} from '../classes/Department';
 
 @Injectable({
   providedIn: 'root'
@@ -18,16 +18,15 @@ export class DepartmentService {
     return this.httpClient.get<DepartmentResponse>(environment.API_URL + Constant.API_ENDPOINT.DEPARTMENT.GET_DEPARTMENTS);
   }
 
-  createDepartment(department: DepartmentRequest): Observable<DepartmentResponse> {
-    return this.httpClient.post<DepartmentResponse>(environment.API_URL + Constant.API_ENDPOINT.DEPARTMENT.CREATE_DEPARTMENT, department);
+  createDepartment(object: Department): Observable<DepartmentResponse> {
+    return this.httpClient.post<DepartmentResponse>(environment.API_URL + Constant.API_ENDPOINT.DEPARTMENT.CREATE_DEPARTMENT, object);
   }
 
-  updateDepartment(department: DepartmentRequest): Observable<DepartmentResponse> {
-    return this.httpClient.put<DepartmentResponse>(environment.API_URL + Constant.API_ENDPOINT.DEPARTMENT.UPDATE_DEPARTMENT, department);
+  updateDepartment(object: Department): Observable<DepartmentResponse> {
+    return this.httpClient.put<DepartmentResponse>(environment.API_URL + Constant.API_ENDPOINT.DEPARTMENT.UPDATE_DEPARTMENT, object);
   }
 
-  deleteDepartment(deptId: number): Observable<DepartmentResponse> {
-    return this.httpClient.delete<DepartmentResponse>(environment.API_URL + Constant.API_ENDPOINT.DEPARTMENT.DELETE_DEPARTMENT + `/${deptId}`);
+  deleteDepartment(id: number): Observable<DepartmentResponse> {
+    return this.httpClient.delete<DepartmentResponse>(environment.API_URL + Constant.API_ENDPOINT.DEPARTMENT.DELETE_DEPARTMENT + id);
   }
 }
-

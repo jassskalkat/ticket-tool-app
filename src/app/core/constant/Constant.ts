@@ -4,7 +4,7 @@ export const Constant = {
       GET_DEPARTMENTS: 'GetDepartments',
       CREATE_DEPARTMENT: 'CreateDepartment',
       UPDATE_DEPARTMENT: 'UpdateDepartment',
-      DELETE_DEPARTMENT: 'DeleteDepartment',
+      DELETE_DEPARTMENT: 'DeleteDepartment?id=',
     },
     EMPLOYEE: {},
     LOGIN: 'Login',
